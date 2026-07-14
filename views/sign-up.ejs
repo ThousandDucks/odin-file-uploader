@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <main>
+        <form action="/sign-up" method="POST">
+            <h1>Create an account</h1>
+            <div class="sign-up-container">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" />
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" />
+                <label for="confirmPassword">Confirm Password</label>
+                <input id="confirmPassword" name="confirmPassword" type="password" />
+            </div>
+            <button class="sign-up-bttn" type="submit">Create Account</button>
+            <div class="log-in-redirect">
+                <div>Already have an account? <a href="/log-in">Log in</a></div>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

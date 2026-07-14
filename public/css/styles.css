@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+
+body {
+    margin: 0;
+    font-family: "IBM Plex Sans";
+    background-color: #E6E6E6;
+}
+/* Nav */
+
+nav {
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+.nav-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px 40px;
+}
+
+.nav-brand {
+    display: flex;
+    gap: 20px;
+    text-decoration: none;
+}
+
+.nav-icon {
+    width: 30px;
+}
+
+.nav-header {
+    font-family: "Merriweather";
+    color: black;
+    font-size: 30px;
+    font-weight: 100;
+    letter-spacing: 5px;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    gap: 30px;
+}
+
+.link {
+    display: inline-block;
+    position: relative;
+    color: black;
+    text-decoration: none;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.5px;
+  bottom: -5px;
+  left: 0;
+  background-color: black;
+  transition: transform 0.25s ease-out;
+}
+
+.link:hover::after {
+  transform: scaleX(1);
+}
+
+.link.left::after {
+  transform-origin: bottom right;
+}
