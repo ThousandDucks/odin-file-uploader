@@ -67,3 +67,14 @@ form {
     margin-top: 30px;
     border-top: 1px solid #ccc;
 }
+
+.error-list {
+    background-color: #fee2e2;
+    border: 1px solid #ef4444;
+    color: #b91c1c;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    list-style-position: inside;
+    font-size: 0.95rem;
+}
