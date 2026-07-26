@@ -1,0 +1,12 @@
+<div class="modal upload-modal hidden">
+    <div class="modal-content">
+        <h2>New File</h2>
+        <button class="close-upload-modal close">&times;</button>
+        <form method="POST" action="/files/upload" enctype="multipart/form-data">
+                <label for="file">Choose a file</label>
+                <input type="file" id="file" name="file" required>
+                <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
