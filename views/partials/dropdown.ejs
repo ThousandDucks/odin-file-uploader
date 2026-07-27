@@ -1,0 +1,9 @@
+<div class="dropdown hidden">
+    <button type="button" class="rename-folder-btn" data-folder-id="<%= folder.id %>" data-folder-name="<%= folder.name %>">
+        Rename
+    </button>
+
+    <form method="POST" action="/folders/<%= folder.id %>/delete">
+        <button class="delete-button" type="submit">Delete</button>
+    </form>
+</div>
