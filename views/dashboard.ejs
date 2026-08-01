@@ -14,18 +14,84 @@
         <div class="dashboard-card">
             <%- include('partials/sidebar') %>
             <div class="dashboard-content">
+                <div class="breadcrumb-container">
+                    <div class="breadcrumbs">
+                        <a href="/folders">Home</a>
+
+                        <% breadcrumbs.forEach(folder => { %>
+                            <span>/</span>
+                            <a href="/folders/<%= folder.id %>">
+                                <%= folder.name %>
+                            </a>
+                        <% }) %>
+                    </div>
+
+                    <% if (error) { %>
+                        <div class="error-message">
+                            <%= error %>
+                        </div>
+                    <% } %>
+                </div>
                 <div class="file-header">
                     <span>Name</span>
                     <span>Size</span>
                     <span>Uploaded</span>
+                    <span></span>
                 </div>
+                
+                <% contentFolders.forEach(folder => { %>
+                    <div class="folder-item">
+                        <a href="/folders/<%= folder.id %>" class="folder-link dashboard-folder-cell">
+                            <img class="folder-icon" src="/images/folder-colour.svg" alt="Folder">
+                            <span><%= folder.name %></span>
+                        </a>
+
+                        <span class="folder-size dashboard-folder-cell">--</span>
+
+                        <span class="folder-date dashboard-folder-cell" data-date="<%= folder.uploadedAt.toISOString() %>">
+                            Loading...
+                        </span>
+
+                        <div class="folder-menu dashboard-folder-cell">
+                            <button class="item-options">⋮</button>
+                            <%- include('partials/dropdown', { folder: folder }) %>
+                        </div>
+                    </div>
+                <% }) %>
+
+                <% contentFiles.forEach(file => { %>
+                    <div class="folder-item">
+                        <a href="/files/<%= file.id %>" target="_blank" class="file-link dashboard-folder-cell">
+                            <img class="file-icon" src="/images/file-outline.svg" alt="File">
+                            <span><%= file.name %></span>
+                        </a>
+
+                        <span class="dashboard-folder-cell">
+                            <%= formatFileSize(file.size) %>
+                        </span>
+
+                        <span
+                            class="folder-date dashboard-folder-cell"
+                            data-date="<%= file.uploadedAt.toISOString() %>"
+                        >
+                            Loading...
+                        </span>
+
+                        <div class="folder-menu dashboard-folder-cell">
+                            <button class="item-options">⋮</button>
+                            <%- include('partials/file-dropdown', { file }) %>
+                        </div>
+                    </div>
+                <% }) %>
             </div>
         </div>
     </main>
 
     <%- include('partials/upload-modal') %>
     <%- include('partials/upload-folder-modal') %>
+    
     <script src="/js/modal.js"></script>
-
+    <script src="/js/dropdown.js"></script>
+    <%- include('partials/footer') %>
 </body>
 </html>

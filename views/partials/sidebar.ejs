@@ -8,18 +8,35 @@
     </div>
     <div class="sidebar-content">
         <div class="folder-list">
-            <% folders.forEach(folder => { %>
-                <div class="folder-item">
-                    <img class="folder-icon" src="/images/folder-colour.svg" alt="Folder">
-                    <span><%= folder.name %></span>
-                    <button class="item-options">⋮</button>
-                    <%- include('dropdown', { folder: folder }) %>
+            <% sidebarFolders.forEach(folder => { %>
+                <div class="sidebar-folder-item">
+                    <a href="/folders/<%= folder.id %>" class="folder-link">
+                        <img class="folder-icon" src="/images/folder-colour.svg" alt="Folder">
+                        <span><%= folder.name %></span>
+                    </a>
+
+                    <div class="folder-menu">
+                        <button class="item-options">⋮</button>
+                        <%- include('dropdown', { folder: folder }) %>
+                    </div>
                 </div>
             <% }) %>
         </div>
         <div class="file-list">
-            <!-- files will be rendered here -->
+            <% sidebarFiles.forEach(file => { %>
+                <div class="sidebar-file-item">
+                    <a href="<%= file.url %>" class="file-link">
+                        <img class="file-icon" src="/images/file-outline.svg">
+                        <span><%= file.name %></span>
+                    </a>
+
+                    <div class="folder-menu">
+                        <button class="item-options">⋮</button>
+                        <%- include('file-dropdown', { file }) %>
+                    </div>
+                </div>
+            <% }) %>
+
         </div>
     </div>
-    <script src="/js/dropdown.js"></script>
 </aside>
