@@ -1,9 +1,6 @@
 const path = require("node:path");
-const { Pool } = require("pg");
 const express = require("express");
-const session = require("express-session");
 const passport = require("./config/passport");
-const LocalStrategy = require('passport-local').Strategy;
 
 const expressSession = require('express-session');
 require('dotenv/config');
@@ -12,6 +9,7 @@ const { PrismaSessionStore } = require("@quixo3/prisma-session-store");
 const { prisma } = require("./lib/prisma");
 
 const app = express();
+app.set("trust proxy", 1);
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -28,7 +26,7 @@ app.use(
       maxAge: 1 * 24 * 60 * 60 * 1000, // login details stored for 1 day
       secure: process.env.NODE_ENV === "production"
     },
-    secret: `${process.env.SESSION_SECRET}`,
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store: new PrismaSessionStore(
@@ -62,7 +60,7 @@ app.use("/folders", folderRouter);
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(3000, (error) => {
+app.listen(PORT, (error) => {
   if (error) {
     throw error;
   }
