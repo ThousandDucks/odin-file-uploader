@@ -1,12 +1,21 @@
 <div class="modal upload-modal hidden">
     <div class="modal-content">
-        <h2>New File</h2>
-        <button class="close-upload-modal close">&times;</button>
-        <form method="POST" action="/files/upload" enctype="multipart/form-data">
-                <label for="file">Choose a file</label>
+        <div class="modal-top">
+            <h2>New File</h2>
+            <button class="close-upload-modal close">&times;</button>
+        </div>
+
+        <form class="modal-form upload-form" method="POST" action="/files/upload" enctype="multipart/form-data">
+
+            <input type="hidden" name="folderId" value="<%= currentFolderId || '' %>">
+            
+            <label for="file" class="upload-area">
+                <span id="file-name">Choose a file</span>
                 <input type="file" id="file" name="file" required>
-                <button type="submit">Submit</button>
+            </label>
+
+            <button class="modal-submit" type="submit">Upload</button>
+
         </form>
     </div>
 </div>
-
