@@ -1,3 +1,7 @@
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const { prisma } = require("../lib/prisma");
+const bcrypt = require("bcryptjs");
 
 passport.use(
   new LocalStrategy(async (username, password, done) => {

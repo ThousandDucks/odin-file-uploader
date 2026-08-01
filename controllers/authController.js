@@ -55,6 +55,7 @@ function getLogIn(req, res, next) {
     }
 }
 
+
 function postLogIn(req, res, next) {
     try {
         const errors = validationResult(req);
@@ -86,7 +87,7 @@ function postLogIn(req, res, next) {
                     return next(err);
                 }
 
-                return res.redirect("/");
+                return res.redirect("/folders");
             });
 
         })(req, res, next);
@@ -96,9 +97,40 @@ function postLogIn(req, res, next) {
     }
 }
 
+async function logOut(req, res, next) {
+    req.logout((err) => {
+        if (err) {
+            return next(err);
+        }
+
+        res.redirect("/");
+    });
+}
+
+async function checkUsername(req, res, next) {
+    try {
+        const username = req.query.username;
+
+        const user = await prisma.user.findUnique({
+            where: {
+                username
+            }
+        });
+
+        res.json({
+            available: !user
+        });
+
+    } catch (error) {
+        next(error);
+    }
+}
+
 module.exports = { 
     getLogIn, 
     getSignUp,
     postSignUp,
-    postLogIn
+    postLogIn,
+    logOut,
+    checkUsername
 };
