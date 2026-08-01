@@ -1,11 +1,7 @@
+const { prisma } = require("../lib/prisma");
 
 function getIndex(req, res, next) {
-    try {
-        res.render("index");
-    }
-    catch (error) {
-        next(error);
-    }
+    res.render("index");
 }
 
 module.exports = { getIndex };

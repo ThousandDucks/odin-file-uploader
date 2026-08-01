@@ -25,7 +25,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   expressSession({
     cookie: {
-     maxAge: 1 * 24 * 60 * 60 * 1000 // login details stored for 1 day
+      maxAge: 1 * 24 * 60 * 60 * 1000, // login details stored for 1 day
+      secure: process.env.NODE_ENV === "production"
     },
     secret: `${process.env.SESSION_SECRET}`,
     resave: false,
@@ -43,6 +44,11 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    next();
+});
 
 const indexRouter = require("./routes/indexRouter");
 const authRouter = require("./routes/authRouter");

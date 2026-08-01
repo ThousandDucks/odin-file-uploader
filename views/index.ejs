@@ -3,13 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
     <%- include('partials/navbar') %>
-    <main>
-        
+    <main class="landing">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Your files, organised in one place.</h1>
+
+                <p>
+                    File Vault helps you securely upload, store, and manage
+                    your files with a simple folder-based system.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="/sign-up" class="primary-button">
+                        Get Started
+                    </a>
+
+                    <a href="/log-in" class="secondary-button">
+                        Log In
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
+    <%- include('partials/footer') %>
 </body>
 </html>
