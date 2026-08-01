@@ -1,0 +1,10 @@
+<div class="dropdown hidden">
+    <a href="/files/<%= file.id %>/download" class="download-button">
+        Download
+    </a>
+
+    <form action="/files/<%= file.id %>/delete" method="POST">
+        <input type="hidden" name="folderId" value="<%= currentFolderId %>">
+        <button type="submit" class="delete-button">Delete</button>
+    </form>
+</div>
