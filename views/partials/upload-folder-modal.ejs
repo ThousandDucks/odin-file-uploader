@@ -1,16 +1,17 @@
 <div class="modal folder-modal hidden">
     <div class="modal-content">
-        <h2 id="folder-modal-title">New Folder</h2>
+        <div class="modal-top">
+            <h2 id="folder-modal-title">New Folder</h2>
+            <button class="close-folder-modal close">&times;</button>
+        </div>
 
-        <button class="close-folder-modal close">&times;</button>
-
-        <form id="folder-form" method="POST" action="/folders">
-            <input type="hidden" id="folder-id" name="folderId">
+        <form class="modal-form" id="folder-form" method="POST" action="/folders">
+            <input type="hidden" id="parent-id" name="parentId" value="<%= currentFolderId || '' %>">
 
             <label for="folder-name">Folder name</label>
             <input type="text" id="folder-name" name="folderName" required>
 
-            <button type="submit" id="folder-submit-btn">Submit</button>
+            <button class="modal-submit" type="submit">Submit</button>
         </form>
     </div>
 </div>
