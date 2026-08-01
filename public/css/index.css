@@ -1,0 +1,66 @@
+.landing {
+    display: flex;
+    justify-content: center;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 70vh;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero-content h1 {
+    font-family: "Merriweather";
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.primary-button,
+.secondary-button {
+    padding: 0.8rem 1.5rem;
+
+    border-radius: 6px;
+    text-decoration: none;
+
+    font-size: 1rem;
+}
+
+.primary-button {
+    background-color: black;
+    color: white;
+}
+
+.primary-button:hover {
+    opacity: 0.8;
+}
+
+.secondary-button {
+    border: 1px solid #ccc;
+    color: black;
+    background-color: white;
+}
+
+.secondary-button:hover {
+    background-color: #e8f5e9;
+}

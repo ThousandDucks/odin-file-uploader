@@ -1,10 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
 
+html {
+    height: 100%;
+}
+
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
     margin: 0;
     font-family: "IBM Plex Sans";
     background-color: #E6E6E6;
 }
+
+main {
+    flex: 1;
+}
+
 /* Nav */
 
 nav {
@@ -69,4 +82,70 @@ nav {
 
 .link.left::after {
   transform-origin: bottom right;
+}
+
+.logout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.logout-button img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.logout-button:hover {
+    background-color: #e8f5e9;
+}
+
+/* Footer */
+
+.footer {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+
+    background-color: white;
+    border-top: 1px solid #ddd;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: #666;
+    text-decoration: none;
+
+    font-size: 0.9rem;
+
+    transition: color 0.2s ease;
+}
+
+.footer a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.separator {
+    margin: 0 8px;
+    color: #aaa;
 }

@@ -78,3 +78,23 @@ form {
     list-style-position: inside;
     font-size: 0.95rem;
 }
+
+/* Live validation messages */
+
+#username-message,
+#password-message,
+#confirm-password-message {
+    font-size: 0.85rem;
+    margin-top: -8px;
+    min-height: 18px;
+}
+
+/* Success message */
+.message-success {
+    color: #16a34a;
+}
+
+/* Error message */
+.message-error {
+    color: #dc2626;
+}

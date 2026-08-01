@@ -1,18 +1,22 @@
+
 .modal {
     position: fixed;
     inset: 0;
-
-    background: rgba(0, 0, 0, 0.5);
 
     display: flex;
     justify-content: center;
     align-items: center;
 
+    background: rgba(0, 0, 0, 0.5);
+
     z-index: 1000;
 
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease;
 }
 
 .modal.hidden {
@@ -21,18 +25,166 @@
     pointer-events: none;
 }
 
+
+/* Modal content */
 .modal-content {
-    background: white;
+    width: min(400px, 90%);
+
     padding: 2rem;
+
+    background: white;
     border-radius: 10px;
 
-    width: 400px;
-    max-width: 90%;
-
     transform: scale(1);
+
     transition: transform 0.2s ease;
 }
 
 .modal.hidden .modal-content {
     transform: scale(0.95);
+}
+
+
+/* Modal header */
+
+.modal-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 1.5rem;
+}
+
+.modal-top h2 {
+    margin: 0;
+}
+
+
+/* Close button */
+
+.close {
+    background: none;
+    border: none;
+
+    font-size: 1.8rem;
+    line-height: 1;
+
+    cursor: pointer;
+
+    color: #666;
+
+    transition: color 0.2s ease;
+}
+
+.close:hover {
+    color: #000;
+}
+
+
+
+/* Modal Forms */
+
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1rem;
+}
+
+.modal-form label {
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    color: #444;
+}
+
+
+.modal-form input[type="text"],
+.modal-form input[type="file"] {
+    padding: 0.75rem 1rem;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    font-size: 1rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.modal-form input[type="text"]:focus,
+.modal-form input[type="file"]:focus {
+    border-color: #4f8ef7;
+
+    box-shadow:
+        0 0 0 3px rgba(79, 142, 247, 0.2);
+}
+
+
+
+/* Submit Button */
+
+
+.modal-submit {
+    align-self: flex-end;
+
+    padding: 0.7rem 1.4rem;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #4f8ef7;
+    color: white;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease;
+}
+
+.modal-submit:hover {
+    background-color: #3a7be0;
+}
+
+.modal-submit:active {
+    transform: scale(0.98);
+}
+
+/* Upload File */
+
+.upload-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 60px;
+
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+
+    color: #666;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.upload-area:hover {
+    border-color: #4f8ef7;
+    background-color: #f8fbff;
+}
+
+.upload-area input[type="file"] {
+    display: none;
 }
